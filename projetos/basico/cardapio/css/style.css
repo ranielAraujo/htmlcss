@@ -33,9 +33,9 @@ header {
 }
 
 nav {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
-
+    position: relative;
     background-image: url('../imagens/sushi-596930_1280.jpg');
     background-position: center center;
     background-attachment: fixed;
@@ -49,6 +49,10 @@ menu {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
     align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 nav>menu>a {
@@ -86,4 +90,10 @@ section>h1 {
     width: 250px;
     height: 250px;
     margin: auto;
+    padding-bottom: 20px;
+}
+
+#entradas-quentes>h1 {
+
+    background-color: red;
 }
