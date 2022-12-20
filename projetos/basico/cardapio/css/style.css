@@ -15,12 +15,38 @@ font-family: 'Permanent Marker', cursive;
 html, body {
     font-size: 1em;
     font-family: 'Mukta', sans-serif;
+    scroll-behavior: smooth;
 }
 
 a {
     text-decoration: none;
     color: #fff;
 }
+
+#volta-topo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+
+    border: 2px double red;
+
+    background-color: rgba(0, 0, 0, 0.993);
+    color: white;
+    font-weight: 700;
+    font-size: 1.5em;
+
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#volta-topo:hover{
+    font-size: 1.3em;
+}
+
 
 header {
     background-color: black;
@@ -56,11 +82,15 @@ menu {
 }
 
 nav>menu>a {
-    padding: 10px;
     margin: 20px;
     background-color: rgb(204, 7, 7);
     text-align: center;
     box-shadow: -2px 2px 2px black;
+    width: 100px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 section {
