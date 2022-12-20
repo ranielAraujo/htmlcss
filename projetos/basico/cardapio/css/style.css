@@ -43,7 +43,7 @@ a {
     cursor: pointer;
 }
 
-#volta-topo:hover{
+#volta-topo:hover {
     font-size: 1.3em;
 }
 
@@ -97,6 +97,13 @@ section {
     background-color: black;
     min-height: 100vh;
     color: #fff;
+}
+
+section>img {
+    display: block;
+    width: 400px;
+    height: 300px;
+    margin: auto;
 }
 
 section>h1 {
