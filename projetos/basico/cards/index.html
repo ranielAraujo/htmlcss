@@ -81,8 +81,8 @@
 <body>
     <h1>Escolha um card:</h1>
     <div id="container">
-        <div class="card" id="card1">CARD 1</div>
         <div class="card" id="card2">CARD 2</div>
+        <div class="card" id="card1">CARD 1</div>
         
     </div>
 
@@ -101,9 +101,9 @@
             if (card.id === 'card1') {
 
                 card1.innerText = "";
-                card1.style.backgroundImage = "url('imagens/avatar.jpg')";
+                card1.style.backgroundImage = "url('imagens/beats.jpg')";
 
-                setTimeout(function () { card1.innerText = "Assistir Avatar 3D hoje" }, 1000);
+                setTimeout(function () { card1.innerText = "Beats" }, 1000);
                 
                 card2.style.display = 'none';
                 pergunta.style.display = 'block';
@@ -112,8 +112,8 @@
             if (card.id === 'card2') {
 
                 card2.innerText = "";
-                card2.style.backgroundImage = "url('imagens/motel.jpg')";
-                setTimeout(function () { card2.innerText = "Motelzin Hoje" }, 1000);
+                card2.style.backgroundImage = "url('imagens/vinho.jpg')";
+                setTimeout(function () { card2.innerText = "Vinho" }, 1000);
                 card1.style.display = 'none';
                 pergunta.style.display = 'block';
             }
