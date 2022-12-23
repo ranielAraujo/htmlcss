@@ -54,26 +54,7 @@
             cursor: pointer;
             color: #fff;
             transition: background-image 3s ease-in-out;
-        }
-
-        div#pergunta,
-        div#pergunta2 {
-            text-align: center;
-            color: #fff;
-            font-size: 2em;
-            margin-top: 20px;
-            display: none;
-        }
-
-        button {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: black;
-            color: red;
-            font-weight: 700;
-            cursor: pointer;
-            margin: 15px;
+            text-shadow: 2px 2px 5px black;
         }
     </style>
 </head>
@@ -83,7 +64,7 @@
     <div id="container">
         <div class="card" id="card2">CARD 2</div>
         <div class="card" id="card1">CARD 1</div>
-        
+
     </div>
 
 
@@ -101,19 +82,21 @@
             if (card.id === 'card1') {
 
                 card1.innerText = "";
-                card1.style.backgroundImage = "url('imagens/beats.jpg')";
+                card1.style.backgroundImage = "url('imagens/bqt.jpg')";
 
-                setTimeout(function () { card1.innerText = "Beats" }, 1000);
-                
+                setTimeout(function () { card1.innerText = "Você me chupa primeiro" }, 1000);
+
                 card2.style.display = 'none';
                 pergunta.style.display = 'block';
             }
-            
+
             if (card.id === 'card2') {
 
                 card2.innerText = "";
-                card2.style.backgroundImage = "url('imagens/vinho.jpg')";
-                setTimeout(function () { card2.innerText = "Vinho" }, 1000);
+                card2.style.backgroundImage = "url('imagens/oral.jpg')";
+                card2.style.backgroundPosition = "top center";
+
+                setTimeout(function () { card2.innerText = "Eu te chupo primeiro" }, 1000);
                 card1.style.display = 'none';
                 pergunta.style.display = 'block';
             }
