@@ -5,102 +5,150 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="imagens/interrogacao.svg" type="image/x-icon">
+    <title>Cards</title>
     <style>
         * {
-            margin: 0px;
-            padding: 0px;
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
         }
 
-        html,
         body {
+            background-image: linear-gradient(to top, red, black);
+        }
+
+        div.container {
+            margin: 0 auto;
             width: 100vw;
             height: 100vh;
-            background-image: linear-gradient(to bottom, red, darkred);
-        }
-
-        h1 {
-            font-size: 3em;
-            text-align: center;
-            padding-top: 20px;
-            color: white;
-            text-shadow: 2px 2px 5px black;
-        }
-
-        div#container {
-            width: 90vw;
-            height: 90vh;
-            margin: auto;
-        }
-
-        div.card {
-            width: 100%;
-            height: 40%;
-            margin-top: 20px;
-            background-color: white;
-
-            border: 2px solid black;
+            background-color: rgba(255, 255, 255, 0.178);
             display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        div.container>h1 {
+            color: white;
+            text-align: center;
+            font-size: 1.7em;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+
+        div.content-card {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.content-card>label {
+            margin-right: 10px;
+        }
+
+        h2 {
+            color: #fff;
+            text-shadow: 2px 2px 5px black;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        div.content-card>input {
+            width: 250px;
+            height: 35px;
+            border-radius: 20px;
+            outline: 2px solid rgb(0, 0, 0);
+            padding: 10px;
+        }
+
+        label {
+            color: #fff;
+            font-weight: bolder;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            width: 100%;
+            height: 70px;
+            background-color: rgba(255, 255, 255, .5);
+            color: rgb(75, 75, 75);
+            text-shadow: 2px 2px 5px rgb(255, 255, 255);
+            font-weight: bolder;
+            font-size: 1.3em;
+            border: 3px solid black;
+            cursor: pointer;
+            transition: background-color .3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #fff;
+        }
+
+        .card{
+            width: 100%;
+            height: 200px;
+            background-color: black;
+            display: none;
+            color: rgb(0, 0, 0);
             align-items: center;
             justify-content: center;
-            font-size: 4em;
-            text-align: center;
-            background-image: url('imagens/vermelho\ metalico.jpg');
-            background-position: top center;
-            background-size: cover;
-            box-shadow: 2px 2px 15px black;
-            cursor: pointer;
-            color: #fff;
-            transition: background-image 3s ease-in-out;
-            text-shadow: 2px 2px 5px black;
+            font-size: 3em;
         }
     </style>
 </head>
 
 <body>
-    <h1>Escolha um card:</h1>
-    <div id="container">
-        <div class="card" id="card1">CARD 1</div>
-        <div class="card" id="card2">CARD 2</div>
+    <div class="container">
+        <h1>Criando Cards</h1>
 
+        <form action="" id="formulario">
+            <h2>Escreva os itens dos cards:</h2>
+            <div id="content-card1" class="content-card">
+                <label for="card1">Card 1</label>
+                <input type="text" name="card1" id="icard1">
+            </div>
+            <div id="content-card2" class="content-card">
+                <label for="card2">Card 2</label>
+                <input type="text" name="card2" id="icard2">
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div class="card" id="card1"></div>
+        <div class="card" id="card2"></div>
     </div>
 
-
-
-
-
     <script>
-        const pergunta = document.getElementById('pergunta');
-        const pergunta2 = document.getElementById('pergunta2');
-        const card1 = document.getElementById('card1');
-        const card2 = document.getElementById('card2');
-        document.addEventListener('click', e => {
-            const card = e.target;
+        const formulario = document.getElementById('formulario');
+        const icard1 = document.querySelector('#icard1');
+        const icard2 = document.querySelector('#icard2');
+        const card = document.querySelectorAll('.card');
+        formulario.addEventListener('submit', e => {
+            e.preventDefault();
+            formulario.style.display = 'none';
+            
+            card[0].style.display = 'flex';
+            card[1].style.display = 'flex';
+            card[0].innerText = icard1.value;
+            card[1].innerText = icard2.value;
+        })
 
-            if (card.id === 'card1') {
-
-                card1.innerText = "";
-                card1.style.backgroundImage = "url('imagens/podrao.jpg')";
-
-                setTimeout(function () { card1.innerText = "Podrão" }, 1000);
-
-                card2.style.display = 'none';
-                pergunta.style.display = 'block';
+        document.addEventListener('click', e=>{
+            if(e.target.id === 'card1'){
+                card[0].style.color = '#fff';
+                card[1].style.display = 'none';
             }
-
-            if (card.id === 'card2') {
-
-                card2.innerText = "";
-                card2.style.backgroundImage = "url('imagens/subway.png')";
-                
-
-                setTimeout(function () { card2.innerText = "Subway" }, 1000);
-                card1.style.display = 'none';
-                pergunta.style.display = 'block';
+            if(e.target.id === 'card2'){
+                card[1].style.color = '#fff';
+                card[0].style.display = 'none';
             }
         })
+
     </script>
 </body>
 
