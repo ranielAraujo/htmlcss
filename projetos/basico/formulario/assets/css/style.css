@@ -1,0 +1,87 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body{
+    background-image: linear-gradient(to left, rgb(0, 0, 94), lightblue);
+    font-size: 100%;
+    font-family: 'Lato', sans-serif;
+}
+
+form{
+    background-color: #fff;
+    width: 500px;
+    height: 600px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.479);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, 1fr);
+}
+
+h1{
+    text-align: center;
+    color: rgb(0, 0, 94);
+    font-weight: bolder;
+}
+
+p{
+    text-align: center;
+}
+
+form > div{
+    display: grid;
+    grid-template-rows: 1fr 1fr 16px;
+    justify-items: center;
+}
+
+div > label{
+   font-size: 1.4em;
+}
+
+div > input{
+    border: 3px solid rgb(0, 0, 94);
+    background-color: rgb(189, 189, 235);
+    height: 30px;
+    width: 300px;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+div > button{
+    width: 100px;
+    margin-bottom: 5px;
+    background-color: rgb(0, 0, 94);
+    color: white;
+    cursor: pointer;
+}
+
+button#cancelar{
+    background-color: rgb(189, 189, 235);
+    color: rgb(0, 0, 94);
+}
+
+button:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 94);
+    border: 2px solid rgb(0, 0, 94);
+}
+
+button#cancelar:hover{
+    background-color: red;
+    color: white;
+}
+
+.error-text{
+    color: red;
+    font-size: 0.8em;
+    margin-top: -5px;
+}
