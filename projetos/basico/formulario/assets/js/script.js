@@ -1,46 +1,32 @@
-const formulario = document.getElementById("formulario");
-const inputs = document.querySelectorAll('input');
-const btnSubmit = document.getElementById('submit');
-const btnCancelar = document.getElementById('cancelar');
+class Navegation {
+    constructor() {
+        const btnOne = document.getElementById('pg-your-info');
 
-
-class ValidacaoForm {
-    constructor(){
-        this.eventos();
+        this.eventos(btnOne);
     }
 
-    eventos(){
-        formulario.addEventListener('submit', e => {
-            this.handleSubmit(e);
+    eventos(btnOne) {
+        btnOne.addEventListener('click', e => {
+            this.handleEvent(e);
         })
     }
 
-    handleSubmit(e){
+    handleEvent(e) {
         e.preventDefault();
-        const camposValidos = this.camposValidos();
+        const infoBtn = e.target;
+        this.constructionPage(infoBtn);
     }
 
-    camposValidos(){
-        let valid = true;
-
-        for(let campo of inputs){
-            const label = campo.previousElementSibling.innerText;
-            if(!campo.value){
-                this.criaErro(campo, `Campo "${label}" não pode estar em branco`);
-                valid = false;
-            }
-            if(!campo.id === 'nome'){
-                if(!this.validaNome(campo)) valid = false;
-            }
+    constructionPage(infoBtn) {
+        const formPersona = document.getElementById("formulario-personal");
+        const formPlan = document.getElementById("formulario-plan");
+        if (infoBtn.id === 'pg-your-info') {
+            formPersona.classList. = 'onView';
         }
-    }
-    criaErro(campo, msg) {
-        const p = document.createElement('p');
-        p.innerHTML = msg;
-        p.classList.add('error-text');
-        campo.insertAdjacentElement('afterend', p);
-
+        if (infoBtn.id === 'pg-plan') {
+            formPlan.classList.toggle = 'onView';
+        }
     }
 }
 
-const validaForm = new ValidacaoForm();
+const navegatiom = new Navegation();

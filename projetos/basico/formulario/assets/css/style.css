@@ -1,7 +1,23 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
-*{
+@font-face {
+    font-family: 'Ubuntu-Bold';
+    src: url('../fonts/Ubuntu-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Ubuntu-Medium';
+    src: url('../fonts/Ubuntu-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Ubuntu-Regular';
+    src: url('../fonts/Ubuntu-Regular.ttf') format('truetype');
+}
+
+
+* {
     padding: 0;
     margin: 0;
     border: 0;
@@ -9,79 +25,217 @@
     outline: none;
 }
 
-body{
-    background-image: linear-gradient(to left, rgb(0, 0, 94), lightblue);
+body {
+    background-color: #e7ebf9;
     font-size: 100%;
     font-family: 'Lato', sans-serif;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Ubuntu-Regular';
+
 }
 
-form{
+main.container {
+    width: 800px;
+    height: 500px;
     background-color: #fff;
-    width: 500px;
-    height: 600px;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.479);
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(7, 1fr);
+    grid-template-columns: 300px 1fr;
 }
 
-h1{
-    text-align: center;
-    color: rgb(0, 0, 94);
-    font-weight: bolder;
-}
-
-p{
-    text-align: center;
-}
-
-form > div{
+nav#navbar {
+    width: 250px;
+    height: 450px;
+    background-image: url('../imgs/bg-sidebar-desktop.svg');
+    background-position: center center;
+    background-size: cover;
+    border-radius: 15px;
+    margin: 25px;
     display: grid;
-    grid-template-rows: 1fr 1fr 16px;
-    justify-items: center;
+    grid-template-rows: repeat(4, 60px);
 }
 
-div > label{
-   font-size: 1.4em;
+div.box-itens-navbar {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-top: 30px;
+    font-size: .8em;
 }
 
-div > input{
-    border: 3px solid rgb(0, 0, 94);
-    background-color: rgb(189, 189, 235);
-    height: 30px;
-    width: 300px;
-    border-radius: 10px;
-    padding-left: 10px;
+
+button.btn-navbar {
+    grid-row: 1 / span 2;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-left: 30px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: #fff;
+    display: flex;
+    align-self: center;
+
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s ease-in-out;
 }
 
-div > button{
-    width: 100px;
+button.btn-navbar:hover, button.btn-navbar:focus {
+    background-color: #85e2ee;
+    color: #000;
+}
+
+div.box-itens-navbar>p {
+    font-family: 'Ubuntu-Bold', Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+div.box-itens-navbar>span {
+    font-family: 'Ubuntu-Medium', Arial, Helvetica, sans-serif;
+    color: rgba(255, 255, 255, 0.700);
+    align-self: end;
+    margin-bottom: 2px;
+}
+
+section#campo-formulario {
+    width: 450px;
+    height: 450px;
+    margin: 25px;
+    border-radius: 15px;
+}
+
+form#formulario-personal {
+    display: none;
+    width: 100%;
+    height: 80%;
+    border-radius: 15px;
+    grid-template-rows: 40px 40px 20px 40px 20px 40px 20px 40px;
+}
+
+form#formulario-personal>h3 {
+    font-family: 'Ubuntu-Bold', Arial, Helvetica, sans-serif;
+    font-size: 1.8em;
+}
+
+form#formulario-personal>p {
+    color: rgba(97, 97, 97, 0.664);
+    font-size: .8em;
+}
+
+form#formulario-personal>label {
+    align-self: flex-end;
+    font-family: 'Ubuntu-Bold', Arial, Helvetica, sans-serif;
+    font-size: 0.7em;
+    color: #1f1a72;
     margin-bottom: 5px;
-    background-color: rgb(0, 0, 94);
-    color: white;
+}
+
+form#formulario-personal>input {
+    border: 1px solid rgba(97, 97, 97, 0.349);
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    justify-self: flex-start;
+}
+
+button#btn-next-stop {
+    height: 40px;
+    width: 80px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    background-color: rgb(0, 0, 85);
+    color: #fff;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+button#btn-next-stop:hover {
+    background-color: rgba(0, 0, 85, 0.432);
+
+}
+
+form#formulario-plan {
+    width: 100%;
+    height: 80%;
+    border-radius: 15px;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 40px 40px 1fr;
+}
+
+form#formulario-plan>h3 {
+    grid-column: 1 / span 3;
+    font-family: 'Ubuntu-Bold', Arial, Helvetica, sans-serif;
+    font-size: 1.8em;
+
+}
+
+form#formulario-plan>p {
+    grid-column: 1 / span 3;
+    color: rgba(97, 97, 97, 0.664);
+    font-size: .8em;
+}
+
+div.type-plan {
+    border: 2px solid rgb(165, 164, 241);
+    height: 160px;
+    width: 130px;
+    border-radius: 15px;
+    display: grid;
+    grid-template-rows: 100px 30px 30px;
     cursor: pointer;
 }
 
-button#cancelar{
-    background-color: rgb(189, 189, 235);
-    color: rgb(0, 0, 94);
+div.type-plan:hover, div.type-plan:active {
+    border: 2px solid rgb(204, 203, 209);
+
 }
 
-button:hover{
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 94);
-    border: 2px solid rgb(0, 0, 94);
+div.type-plan>i {
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
-button#cancelar:hover{
-    background-color: red;
-    color: white;
+div.type-plan>p {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: 'Ubuntu-Bold', Arial, Helvetica, sans-serif;
 }
 
-.error-text{
-    color: red;
-    font-size: 0.8em;
-    margin-top: -5px;
+div.type-plan>span {
+    margin-bottom: 5px;
+    margin-left: 10px;
+    color: #bbbfca;
+}
+
+button#btn-back {
+    height: 40px;
+    width: 80px;
+    position: absolute;
+    bottom: 25px;
+    left: 325px;
+    background-color: rgb(189, 189, 189);
+    color: #fff;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+button#btn-back:hover {
+    background-color: #fff;
+    color: black;
+    border: 2px solid black;
+}
+
+.onView{
+    display:grid;
 }

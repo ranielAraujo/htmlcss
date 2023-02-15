@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+
+        .square {
+            background-color: #fff;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            font-weight: bold;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="board">
+        <div class="square" id="0"></div>
+        <div class="square" id="1"></div>
+        <div class="square" id="2"></div>
+        <div class="square" id="3"></div>
+        <div class="square" id="4"></div>
+        <div class="square" id="5"></div>
+        <div class="square" id="6"></div>
+        <div class="square" id="7"></div>
+        <div class="square" id="8"></div>
+    </div>
+    <div>
+        <p>Jogador X: <span id="scoreX">0</span></p>
+        <p>Jogador O: <span id="scoreO">0</span></p>
+    </div>
+
+    <script>
+        const squares = document.querySelectorAll(".square");
+        const scoreX = document.querySelector("#scoreX");
+        const scoreO = document.querySelector("#scoreO");
+        let currentPlayer = "X";
+        let xWins = 0;
+        let oWins = 0;
+
+        for (let i = 0; i < squares.length; i++) {
+            squares[i].addEventListener("click", function () {
+                if (squares[i].innerHTML === "") {
+                    squares[i].innerHTML = currentPlayer;
+                    checkForWin();
+                    switchPlayer();
+                }
+            });
+        }
+
+        function switchPlayer() {
+            if (currentPlayer === "X") {
+                currentPlayer = "O";
+            } else {
+                currentPlayer = "X";
+            }
+        }
+
+        function checkForWin() {
+            const combinations = [
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8],
+                [0, 4, 8],
+                [2, 4, 6]
+            ];
+
+            for (let i = 0; i < combinations.length; i++) {
+                if (
+                    squares[combinations[i][0]].innerHTML === currentPlayer &&
+                    squares[combinations[i][1]].innerHTML === currentPlayer &&
+                    squares[combinations[i][2]].innerHTML === currentPlayer
+                ) {
+                    alert(currentPlayer + " ganhou!");
+                    if (currentPlayer === "X") {
+                        xWins++;
+                        scoreX.innerHTML = xWins;
+                    } else {
+                        oWins++;
+                        scoreO.innerHTML = oWins;
+                    }
+                    resetBoard();
+                }
+            }
+        }
+
+        function resetBoard() {
+            for (let i = 0; i < squares.length; i++) {
+                squares[i].innerHTML = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
